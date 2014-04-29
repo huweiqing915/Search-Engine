@@ -84,11 +84,11 @@ TextQuery::_single_line TextQuery::get_line(_line_no pos)
 void TextQuery::query_word(const string &word)
 {
 	set<_line_no> line_set = get_line_num(word);
-	cout <<"("<< word <<")"<< "  occurs: " << line_set.size() << " times" << endl;
+	cout << "(" << word << ")" << " occurs:" << line_set.size() << " times!" << endl;
 	set<_line_no>::iterator iter = line_set.begin();
 	while(iter != line_set.end())
 	{
-		cout << "line" << *iter + 1 << ": " << get_line(*iter) << endl;
+		cout << "line " << *iter + 1 << ": " << get_line(*iter) << endl;
 		++iter;
 	}
 }
