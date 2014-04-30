@@ -6,8 +6,11 @@
  ************************************************************************/
 
 #include "ThreadPool.h"
+#include <iostream>
 
-ThreadPool::ThreadPool():_thread_vector(12), _cond(_lock), _is_pool_started(false)
+using namespace std;
+
+ThreadPool::ThreadPool():_thread_vector(5), _cond(_lock), _is_pool_started(false)
 {
 	std::vector<WorkThread>::iterator iter = _thread_vector.begin();
 	for(; iter != _thread_vector.end(); ++iter)
@@ -48,6 +51,7 @@ void ThreadPool::add_task(Task &task)
 	_lock.lock();
 	_task_queue.push(task);
 	_lock.unlock();
+	cout << "add a task" << endl;
 	_cond.notify_all();
 }
 
@@ -67,6 +71,7 @@ bool ThreadPool::get_task(Task &task)
 	_task_queue.pop();
 	_lock.unlock();
 	_cond.notify_all();
+	cout << "get a task" << endl;
 	return true;
 }
 

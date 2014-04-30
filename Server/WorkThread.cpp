@@ -22,6 +22,7 @@ void WorkThread::run()
 		Task task;
 		if(!_p_thread_pool->get_task(task))
 		{
+			std::cout << "get task error" << std::endl;
 			break;
 		}
 		task.excute_task();

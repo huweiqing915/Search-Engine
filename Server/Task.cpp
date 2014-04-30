@@ -13,7 +13,7 @@ void Task::excute_task()
 {
 	string jsonstr = json_string();
 	sendto(_server_sockfd, jsonstr.c_str(), jsonstr.size(), 0, (struct sockaddr*)&_client_addr, sizeof(_client_addr));
-	close(_server_sockfd);
+//	close(_server_sockfd);
 }
 
 string Task::json_string( )
@@ -36,5 +36,4 @@ string Task::json_string( )
 	Json::FastWriter writer ;
 	Json::StyledWriter stlwriter ;
 	return stlwriter.write(root);
-
 }

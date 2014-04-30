@@ -23,16 +23,16 @@ int main(int argc, char *argv[])
 	fin.close();
 	
 	UDPServer server(ip, port);
-	ThreadPool tp;
-	tp.start_thread_pool();
+	server.open_thread_pool();
+//	ThreadPool tp;
+//	tp.start_thread_pool();
 
-	while(true)
-	{
-		Task task;
-		task = server.receive();
-		cout << "receive task from client" << endl;
-		tp.add_task(task);
-		sleep(1);
-	}
+//	while(true)
+//	{
+//		Task task;
+//		task = server.receive();
+//		tp.add_task(task);
+//		sleep(1);
+//	}
 	return 0;
 }

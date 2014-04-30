@@ -22,7 +22,9 @@ public:
 		_tq.read_file("test.txt");
 		_tq.build_map();
 	}
+
 	void excute_task();
+
 	void recv_word(const char *str)
 	{
 		_word = std::string(str);

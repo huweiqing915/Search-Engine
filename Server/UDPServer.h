@@ -23,8 +23,7 @@ public:
 	virtual ~UDPServer();
 	
 //	void start_pool(ThreadPool::max_thread_num);
-
-	Task receive();
+	void open_thread_pool();	
 	void send(Task&);
 private:
 	int _fd;
@@ -32,6 +31,8 @@ private:
 	std::string _ip;
 	std::string _port;
 	void server_bind();
+	ThreadPool tp;
+	void receive();
 };
 
 #endif 
